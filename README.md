@@ -23,8 +23,14 @@ Instructions
 # grab the repo
 $ git clone git@github.com:joshbenham/squish.git
 
+# change into the squish directory
+$ cd squish
+
+# install python requirements
+$ pip install --requirement requirements.txt
+
 # symlink it to your bin directory
-$ ln -s squish/squish_r ~/bin/squish
+$ ln -s squish_r ~/bin/squish
 ```
 
 Also make sure that your ~/bin directory is in your environment path.
