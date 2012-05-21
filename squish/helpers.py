@@ -2,7 +2,9 @@
 # -*- coding: utf-8 -*- #
 
 import envoy
+
 from PIL import Image
+
 
 def exists(string):
   return envoy.run("which %s" % string).status_code == 0
