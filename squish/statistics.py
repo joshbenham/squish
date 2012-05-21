@@ -32,7 +32,7 @@ class Statistics:
 
   def show(self):
     puts(p("Statistics:"))
-    
+
     with indent(3):
       puts("Total Files: %s (PNGs %s/JPGs %s/GIFs %s)" % (
         s(self.files),

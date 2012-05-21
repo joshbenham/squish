@@ -30,7 +30,7 @@ class Core:
     stats = Statistics()
 
     for file in args.files:
-      
+
       if isimage(file):
 
         stats.pre(file)
@@ -40,7 +40,7 @@ class Core:
 
         if "--lossless" in args.flags:
           Optimize.lossless(file)
-      
+
         stats.post(file)
 
     if "--stats" in args.flags:
@@ -80,5 +80,5 @@ class Core:
       puts(p("--lossless    ") + "Apply a lossless optimization on the image(s)")
       puts(p("--watch       ") + "Watch a folder and apply optimizations straight up")
       puts(p("--stats       ") + "Show stats of the optimizations")
-    
+
     sys.exit(1)
