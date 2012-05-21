@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
+# vim: sw=2 ts=2
 
 import os
 
@@ -31,7 +32,7 @@ class Statistics:
 
   def show(self):
     puts(p("Statistics:"))
-    
+
     with indent(3):
       puts("Total Files: %s (PNGs %s/JPGs %s/GIFs %s)" % (
         s(self.files),

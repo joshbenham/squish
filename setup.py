@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# vim: sw=2 ts=2
 
 from setuptools import setup, find_packages
 
