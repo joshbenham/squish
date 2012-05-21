@@ -4,14 +4,14 @@
 from clint.textui import colored
 
 
-# Color: Error
 def e(s):
+  """Color: Error"""
   return colored.red(s)
 
-# Color: Success
 def s(s):
+  """Color: Success"""
   return colored.green(s)
 
-# Color: Primary
 def p(s):
+  """Color: Primary"""
   return colored.cyan(s)
