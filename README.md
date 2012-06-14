@@ -37,3 +37,30 @@ Also make sure that your ~/bin directory is in your environment path.
 
 Usage
 -------
+
+Lossless compression
+```sh
+# on a file
+$ squish_r --lossless file.jpg
+
+# on a folder
+$ squish_r --lossless folder/
+```
+
+Lossy compression
+```sh
+# on a file
+$ squish_r --lossy file.jpg
+
+# on a folder
+$ squish_r --lossy folder/
+```
+
+Lossless and Lossy compression with stats
+```sh
+# on a file
+$ squish_r --lossy --lossless --stats file.jpg
+
+# on a folder
+$ squish_r --lossy --lossless --stats folder/
+```
