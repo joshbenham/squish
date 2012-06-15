@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 
+import os
 import sys
 
 from clint import args
@@ -29,15 +30,26 @@ class Core:
         for file in args.files:
 
             if isimage(file):
-                stats.pre(file)
+                before_size = stats.calculate_before_optimization(file)
+
+                puts("%s %s" % (
+                    e("==>"),
+                    os.path.basename(file))
+                )
+
                 if "--lossy" in args.flags:
                     Optimize.lossy(file)
                 if "--lossless" in args.flags:
                     Optimize.lossless(file)
-                stats.post(file)
+                after_size = stats.calculate_after_optimization(file)
 
-        if "--stats" in args.flags:
-            stats.show()
+                puts("%s %s (%s)" % (
+                    p("<=="),
+                    os.path.basename(file),
+                    s(after_size) if after_size < before_size else after_size
+                ))
+
+        stats.show_statistics()
 
     # Check to see if all the dependencies have been installed
     def _check_dependencies(self):

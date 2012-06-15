@@ -5,7 +5,7 @@ import os
 
 from PIL import Image
 from clint.textui import puts
-from squish.colors import p, s
+from squish.colors import s
 
 
 class Statistics:
@@ -19,36 +19,35 @@ class Statistics:
     gifs = 0
 
     # Total size
-    preSize = 0
-    postSize = 0
+    pre_size = 0
+    post_size = 0
 
-    def pre(self, file):
-        self._baseCalculations(file)
-        self.preSize += self._getFileSize(file)
+    def calculate_before_optimization(self, file):
+        size = self.get_file_size(file)
+        self.get_base_calculations(file)
+        self.pre_size += size
+        return round(size, 2)
 
-    def post(self, file):
-        self.postSize += self._getFileSize(file)
+    def calculate_after_optimization(self, file):
+        size = self.get_file_size(file)
+        self.post_size += self.get_file_size(file)
+        return round(size, 2)
 
-    def show(self):
-        puts(p("Statistics:"))
-
-        puts("Total Files: %s (PNGs %s/JPGs %s/GIFs %s)" % (
+    def show_statistics(self):
+        puts("\nFiles: %s (PNGs %s/JPGs %s/GIFs %s)" % (
             s(self.files),
             s(self.pngs),
             s(self.jpgs),
             s(self.gifs)
         ))
-        puts("Original File/Folder Size: %s" % s(round(self.preSize, 2)))
-        puts("New File/Folder Size: %s" % s(round(self.postSize, 2)))
-        puts("Savings of: %s%%" % s(self._getSavings()))
+        puts("Original Size: %s" % s(round(self.pre_size, 2)))
+        puts("New Size: %s" % s(round(self.post_size, 2)))
+        puts("Savings: %s%%" % s(self._get_savings()))
 
-    def _getSavings(self):
-        return round(100 - ((100 * self.postSize) / self.preSize), 2)
-
-    def _getFileSize(self, file):
+    def get_file_size(self, file):
         return os.stat(file).st_size / 1024.0
 
-    def _baseCalculations(self, file):
+    def get_base_calculations(self, file):
         self.files += 1
         stream = Image.open(file)
 
@@ -60,3 +59,6 @@ class Statistics:
 
         if stream.format == "GIF":
             self.gifs += 1
+
+    def _get_savings(self):
+        return round(100 - ((100 * self.post_size) / self.pre_size), 2)
