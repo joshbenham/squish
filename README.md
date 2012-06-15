@@ -55,12 +55,3 @@ $ squish_r --lossy file.jpg
 # on a folder
 $ squish_r --lossy folder/
 ```
-
-Lossless and Lossy compression with stats
-```sh
-# on a file
-$ squish_r --lossy --lossless --stats file.jpg
-
-# on a folder
-$ squish_r --lossy --lossless --stats folder/
-```

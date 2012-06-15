@@ -15,6 +15,7 @@ from squish.statistics import Statistics
 class Core:
 
     def main(self):
+        """Starts the script"""
         self._check_dependencies()
 
         if not args.get(0) or not len(args.files) or "--help" in args.flags:
@@ -23,8 +24,8 @@ class Core:
         if "--watch" not in args.flags:
             self._iterate_over_files()
 
-    # Iterate over the files and apply optimizations
     def _iterate_over_files(self):
+        """Iterate over the files and apply optimizations"""
         stats = Statistics()
 
         for file in args.files:
@@ -51,8 +52,8 @@ class Core:
 
         stats.show_statistics()
 
-    # Check to see if all the dependencies have been installed
     def _check_dependencies(self):
+        """Check to see if all the dependencies have been installed"""
         imgmin = exists('imgmin')
         image_optim = exists('image_optim')
 
@@ -69,14 +70,13 @@ class Core:
 
             sys.exit(1)
 
-    # Show the use the help system
     def _show_help(self):
+        """Show the use the help system"""
         puts(e("Usage: %s [options] <file/folder>" % sys.argv[0]))
 
         puts(p("--help        ") + "Show the help system")
         puts(p("--lossy       ") + "Apply a lossy optimization on the image(s)")
         puts(p("--lossless    ") + "Apply a lossless optimization on the image(s)")
         puts(p("--watch       ") + "Watch a folder and apply optimizations straight up")
-        puts(p("--stats       ") + "Show stats of the optimizations")
 
         sys.exit(1)
