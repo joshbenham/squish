@@ -4,7 +4,7 @@
 import os
 
 from PIL import Image
-from clint.textui import puts, indent
+from clint.textui import puts
 from squish.colors import p, s
 
 
@@ -32,16 +32,15 @@ class Statistics:
     def show(self):
         puts(p("Statistics:"))
 
-        with indent(3):
-            puts("Total Files: %s (PNGs %s/JPGs %s/GIFs %s)" % (
-                s(self.files),
-                s(self.pngs),
-                s(self.jpgs),
-                s(self.gifs)
-            ))
-            puts("Original File/Folder Size: %s" % s(round(self.preSize, 2)))
-            puts("New File/Folder Size: %s" % s(round(self.postSize, 2)))
-            puts("Savings of: %s%%" % s(self._getSavings()))
+        puts("Total Files: %s (PNGs %s/JPGs %s/GIFs %s)" % (
+            s(self.files),
+            s(self.pngs),
+            s(self.jpgs),
+            s(self.gifs)
+        ))
+        puts("Original File/Folder Size: %s" % s(round(self.preSize, 2)))
+        puts("New File/Folder Size: %s" % s(round(self.postSize, 2)))
+        puts("Savings of: %s%%" % s(self._getSavings()))
 
     def _getSavings(self):
         return round(100 - ((100 * self.postSize) / self.preSize), 2)
