@@ -71,7 +71,7 @@ class Core:
             sys.exit(1)
 
     def _show_help(self):
-        """Show the use the help system"""
+        """Show the help system"""
         puts(e("Usage: %s [options] <file/folder>" % sys.argv[0]))
 
         puts(p("--help        ") + "Show the help system")
