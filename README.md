@@ -35,6 +35,13 @@ $ ln -s squish_r ~/bin/squish
 
 Also make sure that your ~/bin directory is in your environment path.
 
+Notes
+-------
+
+In some versions of Ubuntu the `pip install` line fails because PIL cannot be installed correctly.
+You will need to follow [link](http://www.sandersnewmedia.com/why/2012/04/16/installing-pil-virtualenv-ubuntu-1204-precise-pangolin/)
+to get it working correctly.
+
 Usage
 -------
 
