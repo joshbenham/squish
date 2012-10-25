@@ -68,7 +68,7 @@ class Core:
             message = s('✓ ' + message) if image_optim else e('✗ ' + message)
             puts(message)
 
-            sys.exit(1)
+            sys.exit(0)
 
     def _show_help(self):
         """Show the help system"""
@@ -79,4 +79,4 @@ class Core:
         puts(p("--lossless    ") + "Apply a lossless optimization on the image(s)")
         puts(p("--watch       ") + "Watch a folder and apply optimizations straight up")
 
-        sys.exit(1)
+        sys.exit(0)
