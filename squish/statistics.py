@@ -59,7 +59,7 @@ class Statistics:
         if stream.format == "PNG":
             self.pngs += 1
 
-        if stream.format == "JPG":
+        if stream.format == "JPG" or stream.format == "JPEG":
             self.jpgs += 1
 
         if stream.format == "GIF":
