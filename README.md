@@ -1,11 +1,13 @@
 squish
 ==========
 
-[Josh Benham](http://joshbenham.net)'s Image Optimization tool
+[![Requirements Status](https://requires.io/github/joshbenham/squish/requirements.png?branch=master)](https://requires.io/github/joshbenham/squish/requirements/?branch=master)
 [![Build Status](https://secure.travis-ci.org/joshbenham/squish.png?branch=master)](http://travis-ci.org/joshbenham/squish)
 
 Overview
 --------
+
+[Josh Benham](http://joshbenham.net)'s Image Optimization tool
 
 A simple tool to optimize images for the web. Can use lossy and lossless optimizations or a combination of both.
 
