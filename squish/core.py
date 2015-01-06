@@ -4,7 +4,7 @@
 import os
 import sys
 
-from clint import args
+from clint import arguments
 from clint.textui import puts
 from squish.colors import e, s, p
 from squish.helpers import exists, isimage
@@ -18,6 +18,8 @@ class Core:
         """Starts the script"""
         self._check_dependencies()
 
+        args = arguments.Args()
+
         if not args.get(0) or not len(args.files) or "--help" in args.flags:
             self._show_help()
 
@@ -27,6 +29,8 @@ class Core:
     def _iterate_over_files(self):
         """Iterate over the files and apply optimizations"""
         stats = Statistics()
+
+        args = arguments.Args()
 
         for file in args.files:
 
